@@ -52,3 +52,27 @@ body{background:var(--bg)}
 .seo{background:radial-gradient(circle at 70% 20%,#d8b879,transparent 18%),linear-gradient(135deg,#403b27,#171713)}
 .ads{background:radial-gradient(circle at 80% 70%,#8fa58a,transparent 25%),linear-gradient(135deg,#26352f,#171713)}
 .email{background:radial-gradient(circle at 20% 20%,#d8b879,transparent 18%),linear-gradient(135deg,#403b27,#171713)}
+
+:root{--bg:#f6f1e9;--surface:#fffdf8;--surface2:#e8eee9;--text:#17231f;--muted:#68736d;--accent:#e76f51;--accent2:#2a9d8f;--border:rgba(23,35,31,.14)}
+body{background:var(--bg)}
+body:before{background-image:linear-gradient(rgba(23,35,31,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(23,35,31,.07) 1px,transparent 1px)}
+.navbar{background:rgba(246,241,233,.86)}
+.menu-toggle{color:var(--text)}
+.nav-links a{color:var(--muted)}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
+.btn.primary{background:var(--accent);color:#fffaf4;border-color:var(--accent)}
+.btn:hover{box-shadow:0 12px 35px rgba(231,111,81,.2)}
+.btn.secondary:hover{border-color:rgba(23,35,31,.35)}
+.orb{background:radial-gradient(circle at 35% 30%,#f8b29e,rgba(231,111,81,.25) 30%,rgba(42,157,143,.14) 60%,transparent 70%)}
+.profile-card{background:linear-gradient(145deg,#ffffff,#e8eee9);box-shadow:0 35px 80px rgba(23,35,31,.16)}
+.avatar{background:linear-gradient(135deg,#dcebe5,#f8ded4);border-color:rgba(231,111,81,.25)}
+.floating-card{background:rgba(255,253,248,.9);box-shadow:0 20px 50px rgba(23,35,31,.12)}
+.hero-bg.shape-one{background:var(--accent)}.hero-bg.shape-two{background:var(--accent2)}
+.capculture{background:radial-gradient(circle at 75% 25%,#e76f51,transparent 24%),linear-gradient(135deg,#f5c0af,#fff1e9 55%,#dcebe5)}
+.indusales{background:radial-gradient(circle at 20% 30%,#2a9d8f,transparent 25%),linear-gradient(135deg,#dcebe5,#f4f7f2)}
+.seo{background:radial-gradient(circle at 70% 20%,#e76f51,transparent 18%),linear-gradient(135deg,#f5c0af,#fff1e9)}
+.ads{background:radial-gradient(circle at 80% 70%,#2a9d8f,transparent 25%),linear-gradient(135deg,#dcebe5,#f4f7f2)}
+.email{background:radial-gradient(circle at 20% 20%,#e76f51,transparent 18%),linear-gradient(135deg,#f7d1c4,#fff7f0)}
+.project-card,.skill-card,.about-panel{background:var(--surface)}
+.contact-box{background:linear-gradient(135deg,#fff7f0,#e8eee9)}
+.contact-box:after{background:var(--accent)}
