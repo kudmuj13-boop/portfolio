@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kudzaishe Mujeri — Digital Marketing Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0B0D0A;
+    --panel: #13160F;
+    --panel-soft: #181B13;
+    --ink: #F2F0E6;
+    --muted: #9A9C8E;
+    --forest: #74AD8D;
+    --forest-deep: #1C3427;
+    --gold: #D2A552;
+    --gold-dim: #8C743F;
+    --line: #262A1E;
+    --max: 1080px;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation:none !important; transition:none !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:var(--forest);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(11,13,10,0.86);
+    backdrop-filter:saturate(150%) blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:64px;
+  }
+  .nav-name{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:1.05rem;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+    text-decoration:none;
+  }
+  .nav-links{list-style:none; display:flex; gap:28px; margin:0; padding:0;}
+  .nav-links a{
+    color:var(--muted); text-decoration:none; font-size:0.92rem; font-weight:500;
+    border-bottom:1px solid transparent; padding-bottom:2px;
+  }
+  .nav-links a:hover{color:var(--ink); border-bottom-color:var(--gold);}
+
+  @media (max-width:640px){
+    .nav-links{display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:88px 0 72px;
+    opacity:0; transform:translateY(10px);
+    animation:rise 0.7s ease-out forwards;
+    background:
+      radial-gradient(ellipse 900px 500px at 82% -10%, rgba(210,165,82,0.10), transparent 60%),
+      radial-gradient(ellipse 700px 500px at -5% 20%, rgba(116,173,141,0.08), transparent 60%);
+  }
+  @keyframes rise{ to{opacity:1; transform:none;} }
+
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.4fr 0.8fr;
+    gap:56px;
+    align-items:center;
+  }
+  @media (max-width:800px){
+    .hero-grid{grid-template-columns:1fr; gap:32px;}
+  }
+
+  .eyebrow{
+    color:var(--gold);
+    font-weight:600;
+    font-size:0.95rem;
+    margin:0 0 14px;
+  }
+  h1.name{
+    font-family:var(--font-display);
+    font-size:clamp(2.6rem, 6vw, 4.4rem);
+    line-height:1.02;
+    letter-spacing:-0.02em;
+    margin:0 0 20px;
+    color:var(--ink);
+  }
+  .role-line{
+    font-size:1.15rem;
+    color:var(--muted);
+    max-width:46ch;
+    margin:0 0 28px;
+  }
+  .hero-cta{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:12px 22px;
+    border-radius:3px;
+    font-weight:600;
+    font-size:0.95rem;
+    text-decoration:none;
+    border:1px solid transparent;
+  }
+  .btn-primary{background:var(--gold); color:#161307; border-color:var(--gold);}
+  .btn-primary:hover{background:#E2B968; border-color:#E2B968;}
+  .btn-ghost{background:transparent; color:var(--ink); border-color:var(--line);}
+  .btn-ghost:hover{border-color:var(--forest); color:var(--forest);}
+
+  .hero-portrait{
+    aspect-ratio:1/1;
+    border-radius:6px;
+    background:linear-gradient(155deg, #16281E 0%, #0B0D0A 100%);
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-portrait span{
+    font-family:var(--font-display);
+    font-size:5rem;
+    font-weight:600;
+    color:var(--ink);
+    position:relative;
+    z-index:1;
+  }
+  .hero-portrait::after{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 78% 18%, rgba(210,165,82,0.28), transparent 45%),
+      repeating-linear-gradient(115deg, rgba(116,173,141,0.06) 0 2px, transparent 2px 26px);
+  }
+
+  .hero-stats{
+    display:flex; gap:0;
+    margin-top:40px;
+    border-top:1px solid var(--line);
+    padding-top:22px;
+  }
+  .hero-stats div{
+    flex:1;
+    padding-right:20px;
+    border-right:1px solid var(--line);
+  }
+  .hero-stats div:last-child{border-right:none;}
+  .hero-stats strong{
+    display:block; font-family:var(--font-display); font-size:1.4rem; color:var(--forest);
+  }
+  .hero-stats p{margin:4px 0 0; font-size:0.85rem; color:var(--muted);}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:64px 0;}
+  section + section{border-top:1px solid var(--line);}
+  .section-head{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:40px;
+    margin-bottom:36px;
+  }
+  @media (max-width:760px){
+    .section-head{grid-template-columns:1fr; gap:12px;}
+  }
+  .section-head h2{
+    font-family:var(--font-display);
+    font-size:1.9rem;
+    letter-spacing:-0.01em;
+    margin:0;
+    color:var(--ink);
+  }
+  .section-head .lede{color:var(--muted); max-width:52ch; margin:0;}
+
+  /* ---------- ABOUT ---------- */
+  .about-body{
+    display:grid;
+    grid-template-columns:1fr 260px;
+    gap:48px;
+  }
+  @media (max-width:760px){
+    .about-body{grid-template-columns:1fr;}
+  }
+  .about-body p{margin:0 0 18px; max-width:62ch; color:var(--ink);}
+  .focus-list{list-style:none; margin:0; padding:0;}
+  .focus-list li{
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    display:flex; align-items:baseline; gap:12px;
+  }
+  .focus-list li:first-child{border-top:1px solid var(--line);}
+  .focus-list .dot{width:6px; height:6px; border-radius:50%; background:var(--gold); flex:none; transform:translateY(-2px);}
+  .focus-list span.label{font-weight:600; font-family:var(--font-display); font-size:0.98rem; color:var(--ink);}
+
+  /* ---------- SKILLS ---------- */
+  .skill-groups{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:0;
+    border-top:1px solid var(--line);
+    border-left:1px solid var(--line);
+  }
+  @media (max-width:700px){
+    .skill-groups{grid-template-columns:1fr;}
+  }
+  .skill-group{
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:26px 28px;
+    background:var(--panel);
+  }
+  .skill-group h3{
+    font-family:var(--font-display);
+    font-size:1.05rem;
+    margin:0 0 14px;
+    color:var(--forest);
+  }
+  .skill-group ul{list-style:none; margin:0; padding:0;}
+  .skill-group li{
+    font-size:0.94rem;
+    padding:7px 0;
+    color:var(--ink);
+    border-bottom:1px dashed var(--line);
+  }
+  .skill-group li:last-child{border-bottom:none;}
+
+  .soft-skills{
+    margin-top:26px;
+    display:flex; flex-wrap:wrap; gap:10px;
+  }
+  .soft-skills span{
+    font-size:0.86rem;
+    padding:7px 14px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    color:var(--muted);
+  }
+
+  /* ---------- TOOLS ---------- */
+  .tool-list{
+    display:grid;
+    gap:0;
+  }
+  .tool-row{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:24px;
+    padding:20px 0;
+    border-bottom:1px solid var(--line);
+    align-items:baseline;
+  }
+  .tool-row:first-child{border-top:1px solid var(--line);}
+  @media (max-width:640px){
+    .tool-row{grid-template-columns:1fr; gap:6px;}
+  }
+  .tool-row h4{
+    font-family:var(--font-display);
+    margin:0; font-size:1.05rem;
+    color:var(--ink);
+  }
+  .tool-row p{margin:0; color:var(--muted); font-size:0.94rem;}
+
+  /* ---------- PROJECTS ---------- */
+  .project{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:36px;
+    padding:34px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .project:first-of-type{border-top:1px solid var(--line);}
+  @media (max-width:700px){
+    .project{grid-template-columns:1fr;}
+  }
+  .project-mark{
+    width:100%;
+    aspect-ratio:4/3;
+    border-radius:5px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .project-mark svg{width:44%; height:44%;}
+  .project h3{
+    font-family:var(--font-display);
+    font-size:1.3rem;
+    margin:0 0 10px;
+    color:var(--ink);
+  }
+  .tag-row{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px;}
+  .tag-row span{
+    font-size:0.78rem;
+    font-weight:600;
+    padding:4px 10px;
+    border-radius:3px;
+    background:var(--forest-deep);
+    color:var(--forest);
+  }
+  .project p.desc{margin:0; color:var(--muted); max-width:60ch;}
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    background:var(--panel);
+    border-top:1px solid var(--line);
+    position:relative;
+  }
+  .contact::before{
+    content:"";
+    position:absolute; top:0; left:0; right:0; height:2px;
+    background:linear-gradient(90deg, var(--gold), transparent 70%);
+  }
+  .contact .section-head h2{color:var(--ink);}
+  .contact .section-head .lede{color:var(--muted);}
+  .contact-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:18px 40px;
+  }
+  @media (max-width:640px){
+    .contact-grid{grid-template-columns:1fr;}
+  }
+  .contact-row{
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .contact-row .k{
+    display:block; font-size:0.8rem; color:var(--muted); margin-bottom:4px;
+  }
+  .contact-row a, .contact-row span.v{
+    color:var(--ink); text-decoration:none; font-weight:500; font-size:1.02rem;
+  }
+  .contact-row a:hover{color:var(--gold);}
+
+  footer.credit{
+    text-align:center; padding:26px 0 40px; font-size:0.82rem; color:var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="nav-name" href="#top">Kudzaishe Mujeri</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Digital marketing &amp; SEO</p>
+        <h1 class="name">Kudzaishe Mujeri</h1>
+        <p class="role-line">I help brands grow through search-driven content, sharp campaigns, and digital experiences people actually stick around for. Based in Zimbabwe, studying digital marketing at Uncommon.org.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#projects">See the work</a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <strong>SEO</strong>
+            <p>Audits &amp; on-page strategy</p>
+          </div>
+          <div>
+            <strong>Paid + Organic</strong>
+            <p>Google &amp; Meta campaigns</p>
+          </div>
+          <div>
+            <strong>Brand</strong>
+            <p>Founder, CapCulture</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-portrait" aria-hidden="true">
+        <span>KM</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>About</h2>
+        <p class="lede">Where creativity meets strategy.</p>
+      </div>
+      <div class="about-body">
+        <div>
+          <p>I'm a digital marketing student who's happiest working where creativity and strategy overlap — crafting SEO-driven content, shaping brand identity, and building the kind of digital experiences that actually move a business forward.</p>
+          <p>That's taken shape in a few different ways: founding CapCulture, a streetwear cap brand, from the ground up; running technical SEO audits that turn into real traffic gains; and managing social campaigns across Google and Meta for clients outside my own projects. Every one of those has meant getting hands-on rather than staying theoretical, and I'm still actively experimenting — testing new tools, new formats, new angles.</p>
+        </div>
+        <ul class="focus-list">
+          <li><span class="dot"></span><span class="label">Creative thinker</span></li>
+          <li><span class="dot"></span><span class="label">SEO-driven</span></li>
+          <li><span class="dot"></span><span class="label">Brand builder</span></li>
+          <li><span class="dot"></span><span class="label">Always learning</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Skills</h2>
+        <p class="lede">The core toolkit I bring to a campaign, from research through to reporting.</p>
+      </div>
+
+      <div class="skill-groups">
+        <div class="skill-group">
+          <h3>SEO &amp; search</h3>
+          <ul>
+            <li>Search engine optimization</li>
+            <li>Voice search optimization</li>
+            <li>Answer engine optimization</li>
+            <li>Keyword research</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Advertising</h3>
+          <ul>
+            <li>Google Ads</li>
+            <li>Meta Ads</li>
+            <li>Campaign strategy</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Content &amp; social</h3>
+          <ul>
+            <li>Content marketing</li>
+            <li>Community engagement</li>
+            <li>Social media marketing</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Tools &amp; tech</h3>
+          <ul>
+            <li>Google Analytics</li>
+            <li>Canva</li>
+            <li>AI tools</li>
+            <li>Microsoft Office</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="soft-skills">
+        <span>Communication</span>
+        <span>Adaptability</span>
+        <span>Teamwork</span>
+        <span>Creativity</span>
+        <span>Problem solving</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Tools I use</h2>
+        <p class="lede">Always exploring new tools to stay ahead in the digital marketing landscape.</p>
+      </div>
+
+      <div class="tool-list">
+        <div class="tool-row">
+          <h4>Canva</h4>
+          <p>Visual design, social graphics, presentations, and brand assets.</p>
+        </div>
+        <div class="tool-row">
+          <h4>Google Ads</h4>
+          <p>Search and display campaigns, keyword bidding, and performance tracking.</p>
+        </div>
+        <div class="tool-row">
+          <h4>Meta Business Suite</h4>
+          <p>Facebook and Instagram ad management, audience targeting, and scheduling.</p>
+        </div>
+        <div class="tool-row">
+          <h4>Google Analytics</h4>
+          <p>Traffic analysis, user behaviour tracking, and conversion reporting.</p>
+        </div>
+        <div class="tool-row">
+          <h4>ChatGPT &amp; AI tools</h4>
+          <p>Content ideation, copywriting assistance, and workflow automation.</p>
+        </div>
+        <div class="tool-row">
+          <h4>Microsoft Office</h4>
+          <p>Documents, spreadsheets, presentations, and data organisation.</p>
+        </div>
+        <div class="tool-row">
+          <h4>Figma</h4>
+          <p>UI/UX prototyping, wireframing, and collaborative design.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <p class="lede">A selection of work across branding, campaigns, SEO, and web.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-mark">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="8" width="36" height="26" rx="2" stroke="#74AD8D" stroke-width="2"/>
+            <path d="M6 30l9-9 7 6 8-10 12 13" stroke="#D2A552" stroke-width="2" fill="none"/>
+            <circle cx="15" cy="21" r="1.6" fill="#74AD8D"/>
+          </svg>
+        </div>
+        <div>
+          <h3>Social media campaign — THE INSPIRED</h3>
+          <div class="tag-row">
+            <span>Canva</span><span>Instagram</span><span>TikTok</span><span>Meta Business Suite</span><span>Content strategy</span>
+          </div>
+          <p class="desc">A full brand build for a furniture line targeting adults 25–35: visual identity, social strategy, product photography direction, and community-driven content campaigns.</p>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-mark">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="10" width="32" height="22" rx="2" stroke="#74AD8D" stroke-width="2"/>
+            <line x1="16" y1="36" x2="32" y2="36" stroke="#74AD8D" stroke-width="2"/>
+            <line x1="24" y1="32" x2="24" y2="36" stroke="#74AD8D" stroke-width="2"/>
+            <path d="M13 24l5-5 4 3 6-7 7 8" stroke="#D2A552" stroke-width="2" fill="none"/>
+          </svg>
+        </div>
+        <div>
+          <h3>Industrial machine sales website</h3>
+          <div class="tag-row">
+            <span>WordPress</span><span>SEO</span><span>Google Analytics</span><span>UX design</span><span>Copywriting</span>
+          </div>
+          <p class="desc">A lead-generation site for an industrial equipment supplier, built around clear navigation, SEO-optimised copy, and a layout designed to build buyer trust.</p>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-mark">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="15" stroke="#74AD8D" stroke-width="2"/>
+            <path d="M24 15v9l7 4" stroke="#D2A552" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <h3>Digital marketing campaigns</h3>
+          <div class="tag-row">
+            <span>Google Ads</span><span>Meta Business Suite</span><span>Canva</span><span>Content strategy</span><span>Analytics</span>
+          </div>
+          <p class="desc">Multi-channel execution across Google and Meta, pairing paid advertising with organic content strategy to drive engagement and conversions for a range of brands.</p>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-mark">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 34V16M18 34V22M28 34V12M38 34V26" stroke="#74AD8D" stroke-width="2" stroke-linecap="round"/>
+            <path d="M6 34h36" stroke="#D2A552" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <h3>SEO audit project</h3>
+          <div class="tag-row">
+            <span>Google Analytics</span><span>SEMrush</span><span>Technical SEO</span><span>On-page optimisation</span><span>Reporting</span>
+          </div>
+          <p class="desc">A full technical and content audit identifying gaps and backlink opportunities, delivered with actionable recommendations that improved site visibility and organic traffic.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Ready to collaborate?</h2>
+        <p class="lede">Reach out and let's talk about your next campaign, audit, or brand build.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-row">
+          <span class="k">Email</span>
+          <a href="mailto:mujerikudzaishe36@gmail.com">mujerikudzaishe36@gmail.com</a>
+        </div>
+        <div class="contact-row">
+          <span class="k">Phone</span>
+          <a href="tel:+263774841236">+263 774 841 236</a>
+        </div>
+        <div class="contact-row">
+          <span class="k">LinkedIn</span>
+          <a href="https://linkedin.com/in/kudzaishe-mujeri" target="_blank" rel="noopener">linkedin.com/in/kudzaishe-mujeri</a>
+        </div>
+        <div class="contact-row">
+          <span class="k">GitHub</span>
+          <a href="https://github.com/kudzaishe-mujeri" target="_blank" rel="noopener">github.com/kudzaishe-mujeri</a>
+        </div>
+      </div>
+    </div>
+    <footer class="credit">© 2026 Kudzaishe Mujeri. All rights reserved.</footer>
+  </section>
+
+</main>
+
+</body>
+</html>
