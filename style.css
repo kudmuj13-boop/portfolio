@@ -75,4 +75,8 @@ body:before{background-image:linear-gradient(rgba(255,255,255,.06) 1px,transpare
 .email{background:radial-gradient(circle at 20% 20%,#2f80ff,transparent 18%),linear-gradient(135deg,#174674,#071a33)}
 .project-card,.skill-card,.about-panel{background:var(--surface)}
 .contact-box{background:linear-gradient(135deg,#123b63,#0d2b4d)}
+
+.project-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.project-visual.capculture{background:#071a33}
+.project-visual.capculture .project-number{z-index:1;color:#ffffff}
 .contact-box:after{background:var(--accent)}
